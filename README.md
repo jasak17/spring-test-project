@@ -1,3 +1,8 @@
+## Technologies
+- Spring boot
+- Postgres
+- Docker
+
 ## Instructions
 1. Database setup
   - move to database folder
