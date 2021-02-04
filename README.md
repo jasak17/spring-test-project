@@ -1,17 +1,23 @@
+## Technologies
+- Spring boot
+- Postgres
+- Docker
+
 ## Instructions
+1. Database setup
+  - move to database folder
+  - docker build -t database .
+  - docker run -d --name database-contaner -p 5555:5432 database
 
-- move to database folder
-- docker build -t database .
-- docker run -d --name database-contaner -p 5555:5432 database
-
-- move to server directory
-- mvn install
-- mvn spring-boot:run
+2. Server setup
+  - move to server directory
+  - mvn install
+  - mvn spring-boot:run
 
 - you can see basic API documentation at http://localhost:8080/swagger-ui/
 - GET request on http://localhost:8080/api/v1/doctors return all doctors
 - POST request on http://localhost:8080/api/v1/doctors with json body (below is example) create all needed entities
-
+```json
 {
   "doctor": {
     "id": "100",
@@ -46,4 +52,4 @@
     }
   }
 }
-
+```
