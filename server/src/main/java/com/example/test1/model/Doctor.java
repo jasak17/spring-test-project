@@ -9,10 +9,10 @@ import java.util.List;
 public class Doctor {
 
     @Id
-    @Column (name = "id")
+    @Column(name = "id")
     private long id;
 
-    @Column (name = "department")
+    @Column(name = "department")
     private String department;
 
     @OneToMany(mappedBy = "doctor", cascade = {CascadeType.ALL})
@@ -22,7 +22,8 @@ public class Doctor {
         this.department = department;
     }
 
-    public Doctor() {}
+    public Doctor() {
+    }
 
     public long getId() {
         return id;

@@ -1,5 +1,6 @@
 DROP TABLE IF EXISTS doctors;
 DROP TABLE IF EXISTS patients;
+DROP TABLE IF EXISTS document_report;
 
 CREATE TABLE doctors (
 	id INT PRIMARY KEY,
@@ -8,9 +9,8 @@ CREATE TABLE doctors (
 
 CREATE TABLE patients (
 	id INT PRIMARY KEY,
-	first_name VARCHAR ( 50 ) NOT NULL,
-    last_name VARCHAR ( 50 ) NOT NULL,
-    diseases text[],
+	first_name VARCHAR (50) NOT NULL,
+    last_name VARCHAR (50) NOT NULL,
     fk_doctor_id INT REFERENCES doctors(id)
 );
 

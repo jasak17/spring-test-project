@@ -1,8 +1,8 @@
 package com.example.test1.controller;
 
 import com.example.test1.model.Doctor;
-import com.example.test1.model.Patient;
 import com.example.test1.model.DocumentReport;
+import com.example.test1.model.Patient;
 import com.example.test1.repository.*;
 import io.swagger.annotations.ApiOperation;
 import org.json.JSONArray;
@@ -63,9 +63,6 @@ public class DoctorController {
 
         }
         doctorRepository.save(doctor);
-        for (Patient temp : doctor.getPatients()) {
-            patientRepository.save(temp);
-        }
 
         return doctor;
     }

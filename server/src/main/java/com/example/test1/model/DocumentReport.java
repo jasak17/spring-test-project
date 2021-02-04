@@ -8,31 +8,29 @@ import java.util.Date;
 
 public class DocumentReport {
 
+    @Column(name = "created_at")
+    public Date createdAt;
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(columnDefinition = "serial")
     private long id;
-
-    @Column (name = "doctor_id")
+    @Column(name = "doctor_id")
     private long doctorId;
-
-    @Column(name = "created_at")
-    public Date createdAt;
-
-    @Column (name = "error")
+    @Column(name = "error")
     private String error;
 
-    @PrePersist
-    void createdAt() {
-        this.createdAt = new Date();
+    public DocumentReport() {
     }
-
-    public DocumentReport() {}
 
     public DocumentReport(long id, long doctorId, Date createdAt, String error) {
         this.id = id;
         this.doctorId = doctorId;
         this.error = error;
+    }
+
+    @PrePersist
+    void createdAt() {
+        this.createdAt = new Date();
     }
 
     public long getId() {

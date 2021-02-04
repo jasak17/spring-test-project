@@ -1,4 +1,5 @@
 package com.example.test1.model;
+
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -10,26 +11,27 @@ import java.util.List;
 public class Patient {
 
     @Id
-    @Column (name = "id")
+    @Column(name = "id")
     private long id;
 
-    @Column (name = "first_name")
+    @Column(name = "first_name")
     private String firstName;
 
-    @Column (name = "last_name")
+    @Column(name = "last_name")
     private String lastName;
 
     @ElementCollection
-    @Column (name = "diseases")
+    @Column(name = "diseases")
     private List<String> diseases = new ArrayList<>();
 
 
-    @ManyToOne(fetch=FetchType.LAZY)
-    @JoinColumn(name="doctor_id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "fk_doctor_id")
     @JsonIgnore
     private Doctor doctor;
 
-    public Patient() {}
+    public Patient() {
+    }
 
     public Patient(String firstName, String lastName, List<String> diseases, Doctor doctor) {
         this.firstName = firstName;
